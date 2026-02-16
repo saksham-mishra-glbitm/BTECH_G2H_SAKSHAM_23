@@ -1,46 +1,33 @@
 #include <stdio.h>
-#include <stdbool.h>
 
-bool evenOdd(int num);
 int main()
 {
     
     int num=0;
-    printf("Enter the number till which the sum of even and odd numbers is to be found(num>0):\n");
+    printf("Enter the number:\n");
     scanf("%d",&num);
 
-    if(num<=0)
+    if (num < 0)
     {
-        printf("\n***INVALID INPUT***\nInput should be greater than 0.");
+        printf("\n***INVALID INPUT***\nNumber must be >= 0.");
         return -99;
     }
 
-    if(evenOdd(num)==false)
+    printf("\nThe Fibonacci Series till %d: ",num);
+    int n1=0;
+    int n2=1;
+
+    while(n1<=num)
     {
-        int oddTerms = (num+1)/2;
-        int evenTerms = (num-1)/2;
+        if(n1==0)
+            printf("%d", n1); 
+        else
+            printf(", %d", n1);
 
-        int sumOdd = oddTerms*oddTerms;
-        int sumEven = evenTerms*(evenTerms+1);
-
-        printf("\nSum of odd terms till %d = %d.",num,sumOdd);
-        printf("\nSum of even terms till %d = %d.",num,sumEven);
-    }
-    else
-    {
-        int terms = num/2;
-
-        int sumOdd = terms*terms;
-        int sumEven = terms*(terms+1);
-
-        printf("\nSum of odd terms till %d = %d.",num,sumOdd);
-        printf("\nSum of even terms till %d = %d.",num,sumEven);
+        int t=n1+n2;
+        n1=n2;
+        n2=t;
     }
     
     return 0;
-}
-
-bool evenOdd(int num)
-{
-    return ((num&1)==0);
 }
