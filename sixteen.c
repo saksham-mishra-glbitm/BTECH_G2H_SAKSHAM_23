@@ -7,27 +7,22 @@ int main()
     printf("Enter the number:\n");
     scanf("%d",&num);
 
-    if (num < 0)
+    if (num<0)
     {
         printf("\n***INVALID INPUT***\nNumber must be >= 0.");
         return -99;
     }
-
-    printf("\nThe Fibonacci Series till %d: ",num);
-    int n1=0;
-    int n2=1;
-
-    while(n1<=num)
+    int count=0;
+    for(int i=2;i<(num/2);i++)
     {
-        if(n1==0)
-            printf("%d", n1); 
-        else
-            printf(", %d", n1);
-
-        int t=n1+n2;
-        n1=n2;
-        n2=t;
+        if(num%i==0)
+            count++;
     }
+
+    if(count == 0)
+        printf("%d is a Prime Number.",num);
+    else
+        printf("%d is a NOT Prime Number.",num);
     
     return 0;
 }
