@@ -14,7 +14,6 @@ int main()
         scanf("%d",&a[i]);
         s+=a[i];
     }
-
     printf("\nSum of all elements = %d.",s);
     
     return 0;
